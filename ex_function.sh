@@ -83,20 +83,22 @@ ex_wait () {
 ex_pidSV () {
         echo
 	echo "●PID設定温度(目標温度SV)を設定"
+	echo "r:$1℃に設定します"
 	mosquitto_pub -h localhost -t snk/1 -m "{\"r\": $1}"
 	r=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep '"r"'|awk '{print $2}'`
-	echo "r:$r℃"
+	echo "r:$r℃になりました"
 }
 
 #PID設定温度(目標温度SV)の設定(2系統ある場合)
 ex_pidSV2 () {
 	echo
 	echo "●PID設定温度(目標温度SV)を設定"
+	echo "r:$1℃, r1:$r2℃に設定します"
 	mosquitto_pub -h localhost -t snk/1 -m "{\"r\": $1}"
         mosquitto_pub -h localhost -t snk/1 -m "{\"r1\": $2}"
 	r=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep '"r"'|awk '{print $2}'`
 	r1=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep '"r1"'|awk '{print $2}'`
-	echo "r:$r℃, r1:$r1℃"
+	echo "r:$r℃, r1:$r1℃になりました"
 }
 
 #PID制御値をランダムに選別
