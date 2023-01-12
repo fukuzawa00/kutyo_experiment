@@ -14,7 +14,6 @@ scheduler1 () {
 	echo "r:$R1 ℃ 運転時間:$M m"
 	sleep "$M"s
 
-	echo "R1=$R1, R2=$R2"
 	while [ "$R1" -lt "$R2" ]
 	do
         	#(3)
@@ -25,7 +24,7 @@ scheduler1 () {
         	sleep "$M"s     #M分経過
 
         	if [ $R1 -eq $R2 ]; then
-                	while [ $R1 > $R3 ]
+                	while [ "$R1" -lt "$R3" ]
                 	do
                         	#(4)
                         	R1=$((R1-S)) #S℃ずつ下げる
