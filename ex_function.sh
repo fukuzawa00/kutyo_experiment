@@ -45,10 +45,11 @@ ex_erase () {
 	    while [ "$(supervisorctl status cyclic|grep RUNNING)" == "" ]; do
 		sleep 1s
 	    done
+	    echo "cyclicが起動しました"
 	    while [ "$(supervisorctl status controller|grep RUNNING)" == "" ]; do
 		sleep 1s
 	    done
-	    echo "デーモンが起動しました"
+	    echo "controllerが起動しました"
 	fi
 }
 
@@ -83,7 +84,8 @@ ex_pidSV () {
         echo
 	echo "●PID設定温度(目標温度SV)を設定"
 	mosquitto_pub -h localhost -t snk/1 -m "{\"r\": $1}"
-	echo "r:$1℃"
+	r=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep '"r"'|awk '{print $2}'`
+	echo "r:$r℃"
 }
 
 #PID設定温度(目標温度SV)の設定(2系統ある場合)
@@ -92,7 +94,9 @@ ex_pidSV2 () {
 	echo "●PID設定温度(目標温度SV)を設定"
 	mosquitto_pub -h localhost -t snk/1 -m "{\"r\": $1}"
         mosquitto_pub -h localhost -t snk/1 -m "{\"r1\": $2}"
-	echo "r:$1℃ $r1:$2℃"
+	r=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep '"r"'|awk '{print $2}'`
+	r1=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep '"r1"'|awk '{print $2}'`
+	echo "r:$r℃, r1:$r1℃"
 }
 
 #PID制御値をランダムに選別
@@ -116,6 +120,7 @@ ex_pidrandam () {
 	mosquitto_pub -h localhost -t snk/1 -m "{\"Kp\": $randKp1}"
 	mosquitto_pub -h localhost -t snk/1 -m "{\"Td\": $randTd1}"
 	mosquitto_pub -h localhost -t snk/1 -m "{\"Ti\": $randTi1}"
+	#### 設定されたかsubで読み込んで確認した結果を表示したい ####
         echo "Kp:$randKp1, Td:$randTd1, Ti:$randTi1"
 }
 
@@ -129,12 +134,13 @@ ex_pid () {
 	mosquitto_pub -h localhost -t snk/1 -m "{\"Td\": $2}"
 	#Tiの制御設定値
 	mosquitto_pub -h localhost -t snk/1 -m "{\"Ti\": $3}"
+	#### 設定されたかsubで読み込んで確認した結果を表示したい ####
 	echo "Kp:$1, Td:$2, Ti:$3"
 }
 
 #ヒーター出口温度の上昇
 ex_tempup () {
-	temp=$1
+        temp=$1
 
 	echo
 	echo "●PID1の計測温度(y)を$temp℃まで上げます"
