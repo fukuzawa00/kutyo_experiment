@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#終了ハンドラ
+trap 'ex_final' 3
+
 # プログラムやデータの配置場所
 DEST=/opt/snk
 

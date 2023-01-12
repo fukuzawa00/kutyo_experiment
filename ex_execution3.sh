@@ -4,9 +4,6 @@
 DIR=$(cd $(dirname $0); pwd)
 source $DIR/ex_function.sh
 
-#終了ハンドラ
-trap 'ex_final' 3
-
 #実験準備
 #ex_erase
 
