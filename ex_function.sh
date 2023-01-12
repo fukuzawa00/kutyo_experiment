@@ -1,13 +1,16 @@
 #!/bin/bash
 
+# 外から呼べる関数はex_
+# 外から呼ばない関数はpr_
+
 #終了ハンドラ
-trap 'ex_final' 3
+trap 'pr_final' 1 2 3 15
 
 # プログラムやデータの配置場所
 DEST=/opt/snk
 
 #実験準備
-ex_prepare () {
+ex_erase () {
         echo
 	echo "●実験準備"
 
@@ -20,15 +23,21 @@ ex_prepare () {
 	#
 
 	#データ消去(指定があれば)
-	if [ "$1" != "" ]; then
+	if [ "$*" != "" ]; then
 	    #デーモン停止
 	    supervisorctl stop cyclic controller
 
-	    #データの消去
-	    rm -f $DEST/output/*.log
-	    rm -f $DEST/output/*.json
-	    #rm -f $DEST/data/*.json
-	    echo "outputの中のlog・jsonを消去しました"
+	    for i in $*; do
+		if [ "$i" == "output" ]; then
+		    #データの消去
+		    rm -f $DEST/output/*.log
+		    rm -f $DEST/output/*.json
+		    echo "outputの中のlog・jsonを消去しました"
+		elif [ "$i" == "data" ]; then
+		    rm -f $DEST/data/pid.json
+		    echo "dataの中のpid.jsonを消去しました"
+		fi
+	    done
 
 	    #デーモン再起動
 	    supervisorctl start cyclic controller
@@ -207,7 +216,7 @@ ex_fin () {
 }
 
 #終了ハンドラ
-ex_final () {
+pr_final () {
 	echo "強制終了されたため装置の電源をoffにします"
 	mosquitto_pub -h localhost -t snk/1 -m '{"Heater-value-remote": 0}'
 	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 0}'

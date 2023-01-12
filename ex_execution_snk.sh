@@ -8,7 +8,7 @@ WAIT=15m
 #WAIT=1s # debug
 
 #実験準備
-ex_prepare erase
+ex_erase output
 
 #実験開始
 ex_time

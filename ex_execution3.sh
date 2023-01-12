@@ -5,7 +5,7 @@ DIR=$(cd $(dirname -- $0); pwd)
 source $DIR/ex_function.sh
 
 #実験準備
-ex_prepare erase
+ex_erase output data
 
 #PID設定温度(目標温度SV)の設定
 ex_pidSV2 42.0 36.0
