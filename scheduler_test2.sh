@@ -2,7 +2,7 @@
 
 #ファイル読み込み
 DIR=$(cd $(dirname $0); pwd)
-source $DIR/sckeduler_fun.sh
+source $DIR/scheduler_fun.sh
 
 #設定
 R1=20 #(2)初期設定温度
