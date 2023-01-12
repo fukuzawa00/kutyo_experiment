@@ -1,7 +1,7 @@
 #!/bin/bash
 
 scheduler1 () {
-	R=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep '"r"'|awk '{print $2}'` #現在の温度(R3=R)
+	R=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep '"r"'|awk '{print $2}'` #現在の温度
 	R1=$1 #設定
 	R2=$2 #基準温度
 	R3=$3 #終了温度

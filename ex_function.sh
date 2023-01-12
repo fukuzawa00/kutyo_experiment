@@ -27,7 +27,7 @@ ex_prepare () {
 	    #データの消去
 	    rm -f $DEST/output/*.log
 	    rm -f $DEST/output/*.json
-	    rm -f $DEST/data/*.json
+	    #rm -f $DEST/data/*.json
 	    echo "outputの中のlog・jsonを消去しました"
 
 	    #デーモン再起動
@@ -56,7 +56,7 @@ ex_warm () {
 	echo "ヒーター出口制御100%、入口制御0%に設定しました"
 
 	#電源、ヒーターON
-	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 1.0}'
+	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 1}'
 	mosquitto_pub -h localhost -t snk/1 -m '{"Heater-value-remote": 100}'
 	echo "電源、ヒーターをonにしました"
 }
@@ -161,20 +161,20 @@ ex_time () {
 ex_pid_schedule () {
 	#pidランダム設定
 	#パターン数決定
-	pid_pattern=`shuf -i 2-3 -n1`
+	pid_pattern=`shuf -i 1-10 -n1`
 	for ((k=0 ; k<pid_pattern ; k++))
 	do
 		#pidランダム設定呼び出し
 		ex_pidrandam
 		#電気ヒータ出力スケジュールランダム設定
 		#パターン数決定
-                schedule_pattern=`shuf -i 2-3 -n1`
+                schedule_pattern=`shuf -i 1-10 -n1`
 		for ((j=0 ; j<schedule_pattern ; j++))
 		do
 			#ヒータ出力
                         r_schedule=`shuf -i 0-100 -n1`
                         #実験時間
-                        r_etime=`shuf -i 30-60 -n1`
+                        r_etime=`shuf -i 60-100 -n1`
 			echo "負荷率$r_schedule % 実験時間$r_etime s"
 			mosquitto_pub -h localhost -t snk/1 -m "{\"Heater-value-remote\": $r_schedule}"
 			sleep "$r_etime"s
@@ -211,4 +211,5 @@ ex_final () {
 	echo "強制終了されたため装置の電源をoffにします"
 	mosquitto_pub -h localhost -t snk/1 -m '{"Heater-value-remote": 0}'
 	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 0}'
+	exit 0
 }

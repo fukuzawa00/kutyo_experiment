@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #関数ファイル読み込み
-DIR=$(cd $(dirname $0); pwd)
+DIR=$(cd $(dirname -- $0); pwd)
 source $DIR/ex_function.sh
 
 #実験準備

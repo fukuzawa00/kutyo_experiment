@@ -1,20 +1,20 @@
 #!/bin/bash
 
 #関数ファイル読み込み
-DIR=$(cd $(dirname $0); pwd)
+DIR=$(cd $(dirname -- $0); pwd)
 source $DIR/ex_function.sh
 
 #実験準備
-#ex_prepare erase
+ex_prepare erase
 
 #PID設定温度(目標温度SV)の設定
 ex_pidSV2 42.0 36.0
 
 #PID制御設定値の変更(Kp,Td,Ti)
-ex_pid 0.09976 257.5 623.2
+#ex_pid 0.09976 257.5 623.2
 
 #PID制御値ランダム設定
-#ex_pidrandam
+ex_pidrandam
 
 #暖機運転開始
 ex_warm
