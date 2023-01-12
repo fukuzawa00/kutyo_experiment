@@ -10,6 +10,9 @@ WAIT=15m
 #実験準備
 ex_prepare erase
 
+#実験開始
+ex_time
+
 #指定した室温設定値で15分ずつ運転
 for i in 15.0 20.0 25.0 30.0 25.0 20.0 15.0; do
     ex_pidSV $i

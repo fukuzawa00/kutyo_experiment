@@ -73,7 +73,7 @@ ex_wait () {
 ex_pidSV () {
         echo
 	echo "●PID設定温度(目標温度SV)を設定"
-	mosquitto_pub -h localhost -t snk/1 -m '{"r": $1}'
+	mosquitto_pub -h localhost -t snk/1 -m "{\"r\": $1}"
 	echo "r:$1℃"
 }
 
@@ -81,8 +81,8 @@ ex_pidSV () {
 ex_pidSV2 () {
 	echo
 	echo "●PID設定温度(目標温度SV)を設定"
-	mosquitto_pub -h localhost -t snk/1 -m '{"r": $1}'
-        mosquitto_pub -h localhost -t snk/1 -m '{"r1": $2}'
+	mosquitto_pub -h localhost -t snk/1 -m "{\"r\": $1}"
+        mosquitto_pub -h localhost -t snk/1 -m "{\"r1\": $2}"
 	echo "r:$1℃ $r1:$2℃"
 }
 
