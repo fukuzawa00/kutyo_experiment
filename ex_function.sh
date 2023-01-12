@@ -45,8 +45,25 @@ ex_warm () {
 	echo " "
 }
 
+# 指定した秒だけ待つ
+ex_wait_sec () {
+    sleep "$1"s
+}
+
+# 指定した分だけ待つ
+ex_wait_min () {
+    sleep "$1"m
+}
+
 #PID設定温度(目標温度SV)の設定
 ex_pidSV () {
+	mosquitto_pub -h localhost -t snk/1 -m '{"r": $1}'
+	echo "PID設定温度(目標温度SV)を設定"
+	echo "r:$1℃"
+}
+
+#PID設定温度(目標温度SV)の設定(2系統ある場合)
+ex_pidSV2 () {
 	mosquitto_pub -h localhost -t snk/1 -m '{"r": $1}'
         mosquitto_pub -h localhost -t snk/1 -m '{"r1": $2}'
 	echo "PID設定温度(目標温度SV)を設定"

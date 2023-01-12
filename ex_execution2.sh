@@ -8,7 +8,7 @@ source $DIR/ex_function.sh
 ex_erase
 
 #PID設定温度(目標温度SV)の設定
-ex_pidSV 42.0 36.0
+ex_pidSV2 42.0 36.0
 
 #暖機運転開始
 ex_warm
