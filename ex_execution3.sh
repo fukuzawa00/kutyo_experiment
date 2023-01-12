@@ -2,7 +2,7 @@
 
 #関数ファイル読み込み
 DIR=$(cd $(dirname $0); pwd)
-source /home/fukuzawa/experiment/ex_function.sh
+source $DIR/ex_function.sh
 
 #終了ハンドラ
 trap 'ex_final' 3

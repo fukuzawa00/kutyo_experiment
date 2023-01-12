@@ -163,7 +163,7 @@ ex_fin () {
 
 	#ファイル保存
 	time=`date '+%Y%m%d_%H%M%S'`
-	cp /opt/snk/output/data.json /home/fukuzawa/experiment/data/data_${time}.json
+	cp $DEST/output/data.json $DEST/output/data_${time}.json
 	echo "実験終了時刻:$time4"
 	mosquitto_pub -h localhost -t snk/1 -m '{"Heater-value-remote": 0}'
 	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 0}'

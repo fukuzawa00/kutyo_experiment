@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #ファイル読み込み
-source /home/fukuzawa/experiment/sckeduler_fun.sh
+DIR=$(cd $(dirname $0); pwd)
+source $DIR/sckeduler_fun.sh
 
 #設定
 R1=20 #(2)初期設定温度
