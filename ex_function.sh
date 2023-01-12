@@ -93,7 +93,7 @@ ex_pidSV () {
 ex_pidSV2 () {
 	echo
 	echo "●PID設定温度(目標温度SV)を設定"
-	echo "r:$1℃, r1:$r2℃に設定します"
+	echo "r:$1℃, r1:$2℃に設定します"
 	mosquitto_pub -h localhost -t snk/1 -m "{\"r\": $1}"
         mosquitto_pub -h localhost -t snk/1 -m "{\"r1\": $2}"
 	r=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep '"r"'|awk '{print $2}'`
