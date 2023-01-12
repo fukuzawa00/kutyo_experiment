@@ -4,8 +4,8 @@
 DIR=$(cd $(dirname $0); pwd)
 source $DIR/ex_function.sh
 
-#WAIT=15m
-WAIT=1s # debug
+WAIT=15m
+#WAIT=1s # debug
 
 #実験準備
 ex_prepare erase
