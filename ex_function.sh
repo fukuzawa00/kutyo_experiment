@@ -45,14 +45,10 @@ ex_warm () {
 	echo " "
 }
 
-# 指定した秒だけ待つ
-ex_wait_sec () {
-    sleep "$1"s
-}
-
-# 指定した分だけ待つ
-ex_wait_min () {
-    sleep "$1"m
+# 指定した時間だけ待つ
+ex_wait () {
+    echo "$1待ちます"
+    sleep "$1"
 }
 
 #PID設定温度(目標温度SV)の設定
