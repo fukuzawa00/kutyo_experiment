@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #関数ファイル読み込み
-DIR=$(cd $(dirname $0); pwd)
+DIR=$(cd $(dirname -- $0); pwd)
 source $DIR/ex_function.sh
 
 #終了ハンドラ
 trap 'ex_final' {1,2,3,15}
 
 #実験準備
-ex_erase
+#ex_erase
 
 #PID設定温度(目標温度SV)の設定
 ex_pidSV 42.0 36.0

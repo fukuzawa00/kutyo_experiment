@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #ファイル読み込み
-DIR=$(cd $(dirname $0); pwd)
+DIR=$(cd $(dirname -- $0); pwd)
 source $DIR/scheduler_fun.sh
 
 #設定
