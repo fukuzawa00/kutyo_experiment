@@ -32,7 +32,7 @@ ex_erase () {
 		    #データの消去
 		    rm -f $DEST/output/*.log
 		    rm -f $DEST/output/*.json
-		    echo "outputの中のlog・jsonを消去しました"
+		    echo "$DEST/outputの中のlog・jsonを消去しました"
 		elif [ "$i" == "data" ]; then
 		    rm -f $DEST/data/pid.json
 		    echo "dataの中のpid.jsonを消去しました"
@@ -217,7 +217,8 @@ ex_fin () {
 
 	#ファイル保存
 	time=`date '+%Y%m%d_%H%M%S'`
-	cp $DEST/output/data.json data_${time}.json
+	cp -pr $DEST/output output_${time}
+	echo "$DEST/outputをoutput_${time}にコピーしました。"
 	echo "実験終了時刻:$time4"
 	mosquitto_pub -h localhost -t snk/1 -m '{"Heater-value-remote": 0}'
 	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 0}'
