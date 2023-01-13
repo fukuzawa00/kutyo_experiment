@@ -217,8 +217,11 @@ ex_fin () {
 
 	#ファイル保存
 	time=`date '+%Y%m%d_%H%M%S'`
-	cp -pr $DEST/output output_${time}
-	echo "$DEST/outputをoutput_${time}にコピーしました。"
+	mkdir -p result_${time}
+	cp -pr $DEST/data result_${time}/
+	echo "$DEST/dataをresult_${time}/dataにコピーしました。"
+	cp -pr $DEST/output result_${time}/
+	echo "$DEST/outputをresult_${time}/outputにコピーしました。"
 	echo "実験終了時刻:$time4"
 	mosquitto_pub -h localhost -t snk/1 -m '{"Heater-value-remote": 0}'
 	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 0}'
