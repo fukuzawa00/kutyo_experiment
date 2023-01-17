@@ -79,6 +79,21 @@ ex_wait () {
     sleep "$1"
 }
 
+#任意のレジスタの設定値変更
+ex_set_value () {
+        register=$1
+	value=$2
+        echo
+	echo "●設定値変更"
+	echo "$regiserの値を$valueに設定します"
+	mosquitto_pub -h localhost -t snk/1 -m "{\"$register\": $value}"
+	v=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep "\"$register\$":'|awk '{print $2}'`
+	echo "$registerの値が$vになりました"
+	if [ "$value" != "$v" ]; then
+	    echo "Error: $valueと$vが異なっています"
+	fi
+}
+
 #PID設定温度(目標温度SV)の設定
 ex_pidSV () {
         echo
