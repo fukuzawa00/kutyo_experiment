@@ -82,9 +82,9 @@ ex_set_value () {
 	value=$2
         echo
 	echo "●設定値変更"
-	echo "$regiserの値を$valueに設定します"
+	echo "$registerの値を$valueに設定します"
 	mosquitto_pub -h localhost -t snk/1 -m "{\"$register\": $value}"
-	v=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep "\"$register\$":'|awk '{print $2}'`
+	v=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep "\"$register\":"|awk '{print $2}'`
 	echo "$registerの値が$vになりました"
 	if [ "$value" != "$v" ]; then
 	    echo "Error: $valueと$vが異なっています"
@@ -223,6 +223,13 @@ ex_start () {
 ex_fin () {
         echo
 	echo "●実験終了"
+
+	#装置停止
+	mosquitto_pub -h localhost -t snk/1 -m '{"Heater-value-remote": 0}'
+	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 0}'
+	echo "装置を停止しました"
+
+	#時刻計算
 	time2=`mosquitto_sub -h localhost -t snk/0 -C 1|sed -e 's/,/\n/g'|grep '"time"'|awk '{print $2}'`
 	time3=${time2/%?/}
 	time4=$(date -d @$time3)
@@ -234,7 +241,6 @@ ex_fin () {
 	echo "$DEST/dataをresult_${time}/dataにコピーしました。"
 	cp -pr $DEST/output result_${time}/
 	echo "$DEST/outputをresult_${time}/outputにコピーしました。"
+
 	echo "実験終了時刻:$time4"
-	mosquitto_pub -h localhost -t snk/1 -m '{"Heater-value-remote": 0}'
-	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 0}'
 }
