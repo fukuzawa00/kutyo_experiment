@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# 外から呼べる関数はex_
-# 外から呼ばない関数はpr_
-
 #終了ハンドラ
-trap 'pr_final' 1 2 3 15
+trap 'ex_fin' 1 2 3 15
 
 # プログラムやデータの配置場所
 DEST=/opt/snk
@@ -240,12 +237,4 @@ ex_fin () {
 	echo "実験終了時刻:$time4"
 	mosquitto_pub -h localhost -t snk/1 -m '{"Heater-value-remote": 0}'
 	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 0}'
-}
-
-#終了ハンドラ
-pr_final () {
-	echo "強制終了されたため装置の電源をoffにします"
-	mosquitto_pub -h localhost -t snk/1 -m '{"Heater-value-remote": 0}'
-	mosquitto_pub -h localhost -t snk/1 -m '{"on/off-remote": 0}'
-	exit 0
 }

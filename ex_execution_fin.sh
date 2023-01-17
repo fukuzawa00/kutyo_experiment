@@ -7,5 +7,6 @@ DIR=$(cd $(dirname $0); pwd)
 source $DIR/ex_function.sh
 
 #実験終了
-pr_final
+ex_fin
+
 
