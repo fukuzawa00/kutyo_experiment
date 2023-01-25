@@ -1,0 +1,208 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-25 16:33+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ex_function_new.sh:22
+#, sh-format
+msgid "*ExperimentPreparation"
+msgstr ""
+
+#: ex_function_new.sh:28
+#, sh-format
+msgid "Optimizer has been stopped"
+msgstr ""
+
+#: ex_function_new.sh:43
+#, sh-format
+msgid "Log/json in %s/output has been erased"
+msgstr ""
+
+#: ex_function_new.sh:47
+#, sh-format
+msgid "Deleted pid.json in data"
+msgstr ""
+
+#: ex_function_new.sh:54
+#, sh-format
+msgid "waiting for daemon"
+msgstr ""
+
+#: ex_function_new.sh:59
+#, sh-format
+msgid "cyclic has been activated."
+msgstr ""
+
+#: ex_function_new.sh:64
+#, sh-format
+msgid "controller has been activated."
+msgstr ""
+
+#: ex_function_new.sh:73
+#, sh-format
+msgid "*Start warm-up operation"
+msgstr ""
+
+#: ex_function_new.sh:81
+#, sh-format
+msgid "Heater outlet control set to 100 parsent inlet control set to 0 parsent"
+msgstr ""
+
+#: ex_function_new.sh:87
+#, sh-format
+msgid "Power and heaters turned on."
+msgstr ""
+
+#: ex_function_new.sh:94
+#, sh-format
+msgid "*waiting time"
+msgstr ""
+
+#: ex_function_new.sh:96
+#, sh-format
+msgid "%s I will wait."
+msgstr ""
+
+#: ex_function_new.sh:106
+#, sh-format
+msgid "*Setting value change"
+msgstr ""
+
+#: ex_function_new.sh:108
+#, sh-format
+msgid "Sets the value of %s to %s"
+msgstr ""
+
+#: ex_function_new.sh:112
+#, sh-format
+msgid "The value of %s is now %s"
+msgstr ""
+
+#: ex_function_new.sh:115
+#, sh-format
+msgid "Error: %s and %s are different"
+msgstr ""
+
+#: ex_function_new.sh:123 ex_function_new.sh:137
+#, sh-format
+msgid "*PID set temperature (target temperature SV)"
+msgstr ""
+
+#: ex_function_new.sh:125
+#, sh-format
+msgid "Set to r:%s"
+msgstr ""
+
+#: ex_function_new.sh:130
+#, sh-format
+msgid "r:%s now."
+msgstr ""
+
+#: ex_function_new.sh:139
+#, sh-format
+msgid "Set to r:%s r1:%s"
+msgstr ""
+
+#: ex_function_new.sh:146
+#, sh-format
+msgid "r:%s r1:%s now."
+msgstr ""
+
+#: ex_function_new.sh:153 ex_function_new.sh:187
+#, sh-format
+msgid "*Changes the PID control setpoint"
+msgstr ""
+
+#: ex_function_new.sh:176
+#, sh-format
+msgid "Set by random numbers"
+msgstr ""
+
+#: ex_function_new.sh:179 ex_function_new.sh:202
+#, sh-format
+msgid "Loading with sub"
+msgstr ""
+
+#: ex_function_new.sh:199
+#, sh-format
+msgid "Set to the following PID control parameters"
+msgstr ""
+
+#: ex_function_new.sh:211
+#, sh-format
+msgid "Raises the measured temperature (y) of PID1 to %s degree"
+msgstr ""
+
+#: ex_function_new.sh:219
+#, sh-format
+msgid "Measured temperature (y) of PID1 has increased to %s degree"
+msgstr ""
+
+#: ex_function_new.sh:227
+#, sh-format
+msgid "*Start of experiment"
+msgstr ""
+
+#: ex_function_new.sh:233
+#, sh-format
+msgid "Experiment start time:%s"
+msgstr ""
+
+#: ex_function_new.sh:238
+#, sh-format
+msgid "Switch to auto mode"
+msgstr ""
+
+#: ex_function_new.sh:245
+#, sh-format
+msgid "*pid control parameters electric heater output schedule random setting"
+msgstr ""
+
+#: ex_function_new.sh:264
+#, sh-format
+msgid "Load factor:%s parsent Experiment time:%s h"
+msgstr ""
+
+#: ex_function_new.sh:274
+#, sh-format
+msgid "Load factor:%s parsent Experiment time:%s"
+msgstr ""
+
+#: ex_function_new.sh:285
+#, sh-format
+msgid "*End of experiment"
+msgstr ""
+
+#: ex_function_new.sh:290
+#, sh-format
+msgid "Equipment has been shut down."
+msgstr ""
+
+#: ex_function_new.sh:301
+#, sh-format
+msgid "Copied %s/data to result_%s/data."
+msgstr ""
+
+#: ex_function_new.sh:304
+#, sh-format
+msgid "Copied %s/data to result_%s/output."
+msgstr ""
+
+#: ex_function_new.sh:306
+#, sh-format
+msgid "Experiment end time:%s"
+msgstr ""

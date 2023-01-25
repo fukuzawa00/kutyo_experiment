@@ -1,0 +1,208 @@
+# Japanese translations for experiment package.
+# Copyright (C) 2023 THE experiment'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the experiment package.
+#  <fukuzawa@uno-2271g2>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: experiment 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-25 16:33+0900\n"
+"PO-Revision-Date: 2023-01-25 16:12+0900\n"
+"Last-Translator:  <fukuzawa@uno-2271g2>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ex_function_new.sh:22
+#, fuzzy, sh-format
+msgid "*ExperimentPreparation"
+msgstr "実験準備"
+
+#: ex_function_new.sh:28
+#, sh-format
+msgid "Optimizer has been stopped"
+msgstr "optimizerを停止しました"
+
+#: ex_function_new.sh:43
+#, sh-format
+msgid "Log/json in %s/output has been erased"
+msgstr "%s/outputの中のLog/jsonを消去しました"
+
+#: ex_function_new.sh:47
+#, sh-format
+msgid "Deleted pid.json in data"
+msgstr "dataの中のpid.jsonを消去しました"
+
+#: ex_function_new.sh:54
+#, sh-format
+msgid "waiting for daemon"
+msgstr "デーモン起動待ち"
+
+#: ex_function_new.sh:59
+#, sh-format
+msgid "cyclic has been activated."
+msgstr "cyclicが起動しました"
+
+#: ex_function_new.sh:64
+#, sh-format
+msgid "controller has been activated."
+msgstr "controllerが起動しました"
+
+#: ex_function_new.sh:73
+#, sh-format
+msgid "*Start warm-up operation"
+msgstr "暖機運転開始"
+
+#: ex_function_new.sh:81
+#, sh-format
+msgid "Heater outlet control set to 100 parsent inlet control set to 0 parsent"
+msgstr "ヒーター出口制御100、入口制御0に設定しました"
+
+#: ex_function_new.sh:87
+#, sh-format
+msgid "Power and heaters turned on."
+msgstr "電源、ヒーターをonにしました"
+
+#: ex_function_new.sh:94
+#, sh-format
+msgid "*waiting time"
+msgstr "待ち時間"
+
+#: ex_function_new.sh:96
+#, sh-format
+msgid "%s I will wait."
+msgstr "%s待ちます"
+
+#: ex_function_new.sh:106
+#, sh-format
+msgid "*Setting value change"
+msgstr "設定値変更"
+
+#: ex_function_new.sh:108
+#, sh-format
+msgid "Sets the value of %s to %s"
+msgstr "%sの値を%sに設定します"
+
+#: ex_function_new.sh:112
+#, sh-format
+msgid "The value of %s is now %s"
+msgstr "%sの値が%sになりました"
+
+#: ex_function_new.sh:115
+#, sh-format
+msgid "Error: %s and %s are different"
+msgstr "Error: %sと%sが異なっています"
+
+#: ex_function_new.sh:123 ex_function_new.sh:137
+#, fuzzy, sh-format
+msgid "*PID set temperature (target temperature SV)"
+msgstr "PID設定温度(目標温度SV)を設定"
+
+#: ex_function_new.sh:125
+#, sh-format
+msgid "Set to r:%s"
+msgstr "r:%s℃, r1:%s℃に設定します"
+
+#: ex_function_new.sh:130
+#, sh-format
+msgid "r:%s now."
+msgstr "r:%s℃, r1:%s℃になりました"
+
+#: ex_function_new.sh:139
+#, sh-format
+msgid "Set to r:%s r1:%s"
+msgstr "r:%s℃, r1:%s℃に設定します"
+
+#: ex_function_new.sh:146
+#, sh-format
+msgid "r:%s r1:%s now."
+msgstr "r:%s℃, r1:%s℃になりました"
+
+#: ex_function_new.sh:153 ex_function_new.sh:187
+#, fuzzy, sh-format
+msgid "*Changes the PID control setpoint"
+msgstr "PID制御パラメータを変更します"
+
+#: ex_function_new.sh:176
+#, sh-format
+msgid "Set by random numbers"
+msgstr "乱数で設定"
+
+#: ex_function_new.sh:179 ex_function_new.sh:202
+#, sh-format
+msgid "Loading with sub"
+msgstr "subで読み込み"
+
+#: ex_function_new.sh:199
+#, sh-format
+msgid "Set to the following PID control parameters"
+msgstr "以下のPID制御パラメータに設定"
+
+#: ex_function_new.sh:211
+#, sh-format
+msgid "Raises the measured temperature (y) of PID1 to %s degree"
+msgstr "PID1の計測温度(y)を%s℃まで上げます"
+
+#: ex_function_new.sh:219
+#, sh-format
+msgid "Measured temperature (y) of PID1 has increased to %s degree"
+msgstr "PID1の計測温度(y)が%s℃まで上昇しました"
+
+#: ex_function_new.sh:227
+#, fuzzy, sh-format
+msgid "*Start of experiment"
+msgstr "実験開始"
+
+#: ex_function_new.sh:233
+#, sh-format
+msgid "Experiment start time:%s"
+msgstr "実験開始時刻:%s"
+
+#: ex_function_new.sh:238
+#, sh-format
+msgid "Switch to auto mode"
+msgstr "ATモードに切り替え"
+
+#: ex_function_new.sh:245
+#, fuzzy, sh-format
+msgid "*pid control parameters electric heater output schedule random setting"
+msgstr "pid制御パラメータ、電気ヒーター出力スケジュールランダム設定"
+
+#: ex_function_new.sh:264
+#, sh-format
+msgid "Load factor:%s parsent Experiment time:%s h"
+msgstr "負荷率:%sパーセント 実験時間:%s h"
+
+#: ex_function_new.sh:274
+#, sh-format
+msgid "Load factor:%s parsent Experiment time:%s"
+msgstr "負荷率:%sパーセント 実験時間:%s h"
+
+#: ex_function_new.sh:285
+#, fuzzy, sh-format
+msgid "*End of experiment"
+msgstr "実験終了"
+
+#: ex_function_new.sh:290
+#, sh-format
+msgid "Equipment has been shut down."
+msgstr "装置を停止しました"
+
+#: ex_function_new.sh:301
+#, sh-format
+msgid "Copied %s/data to result_%s/data."
+msgstr "%s/dataをresult_%s/dataにコピーしました"
+
+#: ex_function_new.sh:304
+#, sh-format
+msgid "Copied %s/data to result_%s/output."
+msgstr "%s/outputをresult_%s/outputにコピーしました"
+
+#: ex_function_new.sh:306
+#, sh-format
+msgid "Experiment end time:%s"
+msgstr "実験終了時刻:%s"
